@@ -18,5 +18,3 @@ jobs:
                 
             - name:  Retrieve Variable
               run: echo "mY VARIABLE NAME IS ${{vars.MY_VAR}}"
-
-
