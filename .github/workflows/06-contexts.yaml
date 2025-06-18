@@ -32,9 +32,9 @@ jobs:
                 echo "${{(github.run_number)}}"
                              
             - name:  Retrieve Variable
-              run: echo "mY VARIABLE NAME IS ${{vars.MY_VAR}}"
+              run: echo "mY VARIABLE NAME IS ${{env.MY_VAR}}"
             - name: Print Env Variables
               env:
                  MY_OVERWRITTEN_VAR: 'step'  
               run: |
-                    echo "Workflow env: <retrieve the value of the ${{vars.MY_WORKFLOW_VAR}}"  
+                    echo "Workflow env: <retrieve the value of the ${{env.MY_WORKFLOW_VAR}}"  
