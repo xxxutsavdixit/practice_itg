@@ -1,0 +1,19 @@
+name: 04 - Using Actions
+on: 
+    push:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+         - name: checking put the branch 
+           uses: actions/checkout@v4
+        
+         - name: list the content 
+           run: ls -la 
+           
+           
+
+           
+            
+              
+
