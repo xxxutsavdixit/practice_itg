@@ -8,12 +8,14 @@ jobs:
          - name: checking put the branch 
            uses: actions/checkout@v4
         
-         - name: list the content 
-           run: ls -la 
-           
-           
+         - name: Setup Node
+           uses: actions/setup-node@v4
+           with:
+             node-version: '20'  
 
-           
-            
-              
+         - name: Check Node and NPM versions
+           run: |
+             node -v
+             npm -v
 
+    
