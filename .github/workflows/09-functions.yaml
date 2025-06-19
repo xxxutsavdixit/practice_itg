@@ -7,7 +7,7 @@ jobs:
         steps:
             - name: Failing step
               run: |
-                   exit 1
+                   exit 0
                    
             - name: I will be skipped
               if: ${{success()}}
@@ -22,7 +22,7 @@ jobs:
               if: ${{!cancelled()}}
               run: |
                    echo "I will always print, except when the workflow is cancelled."
-                   
+
 
 
 
