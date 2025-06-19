@@ -1,10 +1,22 @@
 name: 09 - Using Functions
 on:
+    pull_request:
     workflow_dispatch:
 jobs:
     echo1:
         runs-on: ubuntu-latest
         steps:
+            - name: Print PR title
+              run: echo "PR name is ${{github.event.pull_request.title}}"
+
+            - name: Print PR labels
+              run: |
+                   cat << EOF
+                   echo "${{toJson(github.event.pull_request.title)}}""
+                   EOF
+            - name: Sleep for 20 seconds
+              run:  sleep  20
+
             - name: Failing step
               run: |
                    exit 0
@@ -23,6 +35,7 @@ jobs:
               run: |
                    echo "I will always print, except when the workflow is cancelled."
 
-
-
-
+            - name: I will execute when cancelled
+              if: ${{cancelled()}}
+              run: |
+                echo "I will execute when cancelled"  
