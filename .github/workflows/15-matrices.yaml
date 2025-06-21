@@ -1,0 +1,21 @@
+name:  15 - Working with Matrices
+on: 
+    workflow_dispatch:
+jobs:
+    backwards-compatibility:
+       runs-on: ubuntu-latest 
+       strategy:
+         matrix:
+            node-nersion: [18, 20, 21]
+            os:
+                - ubuntu-latest
+                - windows-latest
+       steps:
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                 node-version: ${{matrix.node-nersion}}
+            - name: Perform some tests
+              run: echo  "Running tests on OS ${{matrix.os}} and NodeJS ${{matrix.node-nersion}}"
+
+              
