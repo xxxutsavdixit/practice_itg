@@ -1,30 +1,17 @@
 name: 12 - Working with Outputs
 on:
-   push:
-   workflow_dispatch:
-     inputs: 
-         build-status:
-             description: testinggggggggggg
-             type: choice
+  workflow-dispatch:
+      inputs:
+          build-status:
+             description: testing
+             type: choice 
              options:
-                - success
-                - failure             
-jobs:
-      build:
-        runs-on: ubuntu-latest
-        outputs: 
-         build-status: ${{steps.build.outputs.status}}
-        steps: 
-            - name: Print GITHUB_OUTPUT path
-              run: echo "$GITHUB_OUTPUT"
-            - name: Build
-              id: build
-              run: echo  "status=success" >> "$GITHUB_OUTPUT"
-
-      deploy:
-         runs-on: ubuntu-latest        
-         needs: build
-         steps:
-               - name: Deploy
-                 if: ${{needs.build.outputs.build-status == 'success'}}
-                 run: echo "Deploying"
+                  - success
+                  - failure
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+         - name: Print GITHUB_OUTPUT path
+           run: echo ${{GITHUB_OUTPUT}}  
+                           
