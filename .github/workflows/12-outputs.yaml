@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
          - name: Print GITHUB_OUTPUT path
-           run: echo ${{GITHUB_OUTPUT}}  
+           run: echo "${{GITHUB_OUTPUT}}  "
                            
